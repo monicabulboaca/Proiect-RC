@@ -1,5 +1,4 @@
 import abc
-from DNSOutgoing import *
 # FROM: https://github.com/scop/python-zeroconf/blob/master/zeroconf.py
 
 

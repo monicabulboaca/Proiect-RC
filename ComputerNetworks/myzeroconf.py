@@ -1,6 +1,5 @@
-import ipaddress
-from typing import cast
-from DNSClasses import *
+
+import DNSClasses
 from SocketFunctions import *
 
 class MyZeroConf:

@@ -1,14 +1,11 @@
 import os
-import re
 import socket
 import sys
 import time
-
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 from PyQt5.uic import loadUi
-from zeroconf import Zeroconf
 from MyServiceBrowser import ServiceBrowser
-# from myzeroconf import MyZeroConf
+from myzeroconf import MyZeroConf
 
 
 class Ui_MainWindow(QMainWindow):
@@ -71,7 +68,7 @@ class MyListener:
         info = zeroconf.get_service_info(type, name)
         if info:
             if self.hostname == name:
-                self.string += (f'{socket.inet_ntoa(info.address)}')
+                self.string += (f'{socket.inet_ntoa(info.address)}')    # Convert an IP address from 32-bit packed binary format to string format
         else:
             self.string += "   No info!\n"
 
@@ -80,22 +77,17 @@ class Connections:
     def __init__(self, mainWindow):
         self.main_window = mainWindow
         self.zeroConf = None
-        self.zeroConf2 = None
 
     def get_IP_address(self):
         hostname = self.main_window.ip_address.text()
         if hostname != "":
-            if self.zeroConf2 is None:
-                self.zeroConf2 = Zeroconf()
+            if self.zeroConf is None:
+                self.zeroConf = MyZeroConf()
 
             self.main_window.outputDisplay.append("Resolving hostname...")
             listener = MyListener(hostname)
-            type_ = re.sub("^[^.]+", '', hostname)
-            type_ = type_[1:]
-
-            browser = ServiceBrowser(self.zeroConf2, type_, listener)
+            # ....
             time.sleep(3)
-            browser.cancel()
             self.main_window.ip_address.setText(listener.string)
             self.main_window.outputDisplay.append("\t"+listener.string)
 
