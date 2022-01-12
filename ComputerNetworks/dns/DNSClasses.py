@@ -1,7 +1,6 @@
 import abc
 # FROM: https://github.com/scop/python-zeroconf/blob/master/zeroconf.py
 
-
 # DNS constants
 import logging
 import socket
@@ -17,12 +16,11 @@ _BROWSER_TIME = 500
 _MDNS_ADDR = '224.0.0.251'
 _MDNS_PORT = 5353
 
-_DNS_PORT = 53
 _DNS_TTL = 120  # two minutes default TTL as recommended by RFC6762
 
 _CLASS_IN = 1
 _CLASS_ANY = 255
-_CLASS_MASK = 0x7FFF    # 01111...1
+_CLASS_MASK = 0x7FFF  # 01111...1
 _CLASS_UNIQUE = 0X8000  # 10000...0
 
 _TYPE_A = 1
@@ -49,7 +47,7 @@ _TYPES = {_TYPE_A: "a",
           _TYPE_CNAME: "cname",
           _TYPE_PTR: "ptr",
           _TYPE_TXT: "txt",
-          _TYPE_AAAA: "4xa",    # for de domain name
+          _TYPE_AAAA: "4xa",  # for de domain name
           _TYPE_SRV: "srv",
           _TYPE_ANY: "any"}
 
@@ -63,6 +61,7 @@ if log.level == logging.NOTSET:
 def current_time_millis() -> float:
     """Current system time in milliseconds"""
     return time.time() * 1000
+
 
 class DNSEntry:
     """Clasa de baza DNSEntry"""
@@ -275,4 +274,3 @@ class DNSService(DNSRecord):
     def __repr__(self):
         """Reprezentare de tip string"""
         return self.to_string("%s:%s" % (self.server, self.port))
-
