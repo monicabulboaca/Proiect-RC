@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(109, 109, 109);</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="input_type">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -30,7 +30,7 @@
 color: rgb(0, 0, 0);</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="input_name">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -44,7 +44,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="input_addr">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -177,7 +177,7 @@ color: rgb(255, 255, 255);</string>
     <string>TTL:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="input_port">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -191,7 +191,7 @@ color: rgb(255, 255, 255);</string>
 color: rgb(0, 0, 0);</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="input_weight">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -205,7 +205,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
+  <widget class="QLineEdit" name="input_priority">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -219,7 +219,7 @@ color: rgb(0, 0, 0);</string>
 color: rgb(0, 0, 0);</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_7">
+  <widget class="QLineEdit" name="input_ttl">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -250,7 +250,7 @@ color: rgb(255, 255, 255);</string>
     <string>Server:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_8">
+  <widget class="QLineEdit" name="input_server">
    <property name="geometry">
     <rect>
      <x>190</x>

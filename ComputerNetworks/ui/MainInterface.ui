@@ -28,7 +28,7 @@
       <x>30</x>
       <y>50</y>
       <width>451</width>
-      <height>271</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -70,53 +70,8 @@ color: rgb(0, 0, 0);</string>
       <string>OK</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_addSrv">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>110</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(209, 209, 209);</string>
-     </property>
-     <property name="text">
-      <string>Add Service</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_removeSrv">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>160</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(209, 209, 209);</string>
-     </property>
-     <property name="text">
-      <string>Remove Service</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>140</y>
-       <width>261</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
    </widget>
-   <widget class="QTextEdit" name="outputDisplay">
+   <widget class="QTextEdit" name="output_display">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -149,9 +104,9 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>340</y>
+      <y>170</y>
       <width>441</width>
-      <height>301</height>
+      <height>481</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -160,27 +115,32 @@ p, li { white-space: pre-wrap; }
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="btn_searchSrv">
+    <widget class="QPushButton" name="btn_search_srv_types">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>80</y>
+       <x>130</x>
+       <y>30</y>
        <width>141</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(209, 209, 209);</string>
      </property>
      <property name="text">
-      <string>Search All Services</string>
+      <string>Search service types</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="ip_address">
+    <widget class="QLineEdit" name="hostname">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>20</y>
+       <x>10</x>
+       <y>360</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -196,8 +156,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QPushButton" name="btn_getIP">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>80</y>
+       <x>270</x>
+       <y>360</y>
        <width>141</width>
        <height>31</height>
       </rect>
@@ -214,32 +174,32 @@ color: rgb(0, 0, 0);</string>
       <string>Get IP Address</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_selectSrv">
+    <widget class="QLabel" name="label_select_srv_type">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>170</y>
+       <x>0</x>
+       <y>90</y>
        <width>141</width>
        <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Select Service</string>
+      <string>Select service type</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_select">
+    <widget class="QComboBox" name="cbox_select_service_type">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>170</y>
+       <x>170</x>
+       <y>90</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -248,12 +208,12 @@ color: rgb(0, 0, 0);</string>
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_search_hostn">
+    <widget class="QPushButton" name="btn_search_hostn_srv">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>220</y>
-       <width>151</width>
+       <x>80</x>
+       <y>290</y>
+       <width>251</width>
        <height>31</height>
       </rect>
      </property>
@@ -261,7 +221,89 @@ color: rgb(0, 0, 0);</string>
       <string notr="true">background-color: rgb(209, 209, 209);</string>
      </property>
      <property name="text">
-      <string>Search hostnames</string>
+      <string>Search hostnames with selected service</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_search_all_srv">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>130</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(209, 209, 209);</string>
+     </property>
+     <property name="text">
+      <string>Search services of selected type</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_select_srv">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>180</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Select service</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbox_select_service">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>180</y>
+       <width>231</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_remove_srv">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>240</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(209, 209, 209);</string>
+     </property>
+     <property name="text">
+      <string>Remove Service</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_add_srv">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>240</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(209, 209, 209);</string>
+     </property>
+     <property name="text">
+      <string>Add Service</string>
      </property>
     </widget>
    </widget>
