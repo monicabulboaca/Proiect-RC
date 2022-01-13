@@ -1,7 +1,7 @@
 import threading
 from dns.DNSClasses import *
-from dns import DNSClasses
 from dns.DNSOutgoing import DNSOutgoing
+from dns.DNSClasses import _GLOBAL_DONE, _TYPE_PTR, _CLASS_IN, _FLAGS_QR_QUERY,  _BROWSER_TIME
 
 
 # folosit pt a cauta un serviciu de un anumit tip
@@ -21,7 +21,7 @@ class ServiceBrowser(threading.Thread):
         self.start()
 
     def update_record(self, zeroconf, now, record):
-        if record.type_ == DNSClasses._TYPE_PTR and record.name == self.type_:
+        if record.type_ == _TYPE_PTR and record.name == self.type_:
             expired = record.is_expired(now)
             try:
                 oldrecord = self.services[record.alias.lower()]
@@ -33,7 +33,7 @@ class ServiceBrowser(threading.Thread):
                     self.list.append(callback)
                     return
             except Exception as e:
-                log.exception('Unknown error:%r', e)
+                # print('Unknown error:%r', e)
                 if not expired:
                     self.services[record.alias.lower()] = record
                     callback = lambda x: self.listener.add_service(x, self.type_, record.alias)
@@ -52,12 +52,12 @@ class ServiceBrowser(threading.Thread):
             now = current_time_millis()
             if len(self.list) == 0 and self.next_time > now:
                 self.zeroconf.wait(self.next_time - now)
-            if DNSClasses._GLOBAL_DONE or self.done:
+            if _GLOBAL_DONE or self.done:
                 return
             now = current_time_millis()
             if self.next_time <= now:
-                out = DNSOutgoing(DNSClasses._FLAGS_QR_QUERY)
-                out.add_question(DNSQuestion(self.type_, DNSClasses._TYPE_PTR, DNSClasses._CLASS_IN))
+                out = DNSOutgoing(_FLAGS_QR_QUERY)
+                out.add_question(DNSQuestion(self.type_, _TYPE_PTR, _CLASS_IN))
                 for record in self.services.values():
                     if not record.is_expired(now):
                         out.add_answer_at_time(record, now)

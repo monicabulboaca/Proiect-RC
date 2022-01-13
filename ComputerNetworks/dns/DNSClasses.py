@@ -1,11 +1,9 @@
-import abc
 # FROM: https://github.com/scop/python-zeroconf/blob/master/zeroconf.py
-
-# DNS constants
-import logging
+import abc
 import socket
 import time
 
+# DNS constants
 _GLOBAL_DONE = False
 _MAX_MSG_ABSOLUTE = 8972
 _CHECK_TIME = 175
@@ -24,7 +22,7 @@ _CLASS_MASK = 0x7FFF  # 01111...1
 _CLASS_UNIQUE = 0X8000  # 10000...0
 
 _TYPE_A = 1
-_TYPE_CNAME = 5  # Canonical Name Record- used to map a domain name as an alias for another domain
+_TYPE_CNAME = 5  # CNAME = Canonical Name Record- used to map a domain name as an alias for another domain
 _TYPE_PTR = 12
 _TYPE_TXT = 16
 _TYPE_AAAA = 28
@@ -50,12 +48,6 @@ _TYPES = {_TYPE_A: "a",
           _TYPE_AAAA: "4xa",  # for de domain name
           _TYPE_SRV: "srv",
           _TYPE_ANY: "any"}
-
-log = logging.getLogger(__name__)
-log.addHandler(logging.NullHandler())
-
-if log.level == logging.NOTSET:
-    log.setLevel(logging.WARN)
 
 
 def current_time_millis() -> float:
@@ -110,7 +102,6 @@ class DNSEntry:
 
 
 class DNSQuestion(DNSEntry):
-    """DNSQuestion"""
 
     def __init__(self, name, type_, class_):
         super().__init__(name, type_, class_)
@@ -201,7 +192,7 @@ class DNSAddress(DNSRecord):
         try:
             return self.to_string(socket.inet_ntoa(self.address))  # 32 bit packed binary format
         except Exception as e:
-            log.exception('Unknown error: %r', e)
+            # print('Unknown error: %r', e)
             return self.to_string(str(self.address))
 
 
